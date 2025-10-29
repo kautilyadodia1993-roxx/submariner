@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Submarine Battle</title>
   <link rel="stylesheet" href="styles.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
   <!-- HUD -->
@@ -40,33 +40,31 @@
   <button id="btnFire" title="Fire">🔥</button>
 
   <!-- Start overlay -->
-  <!-- Start overlay -->
-<div id="overlay" class="overlay show">
-  <div class="panel">
-    <h1>Submarine Battle</h1>
-    <p>Collect bubbles to grow (levels only). Destroy enemies.</p>
+  <div id="overlay" class="overlay show">
+    <div class="panel">
+      <h1>Submarine Battle</h1>
+      <p>Collect bubbles to grow (levels only). Destroy enemies.</p>
 
-    <div style="margin:10px 0;">
-      <label for="timerSelect" style="display:block; margin-bottom:6px;">
-        <strong>Game Duration:</strong>
-      </label>
-      <select id="timerSelect">
-        <option value="60">1 Minute</option>
-        <option value="120" selected>2 Minutes</option>
-        <option value="180">3 Minutes</option>
-        <option value="300">5 Minutes</option>
-      </select>
+      <div style="margin:10px 0;">
+        <label for="timerSelect" style="display:block; margin-bottom:6px;">
+          <strong>Game Duration:</strong>
+        </label>
+        <select id="timerSelect">
+          <option value="60">1 Minute</option>
+          <option value="120" selected>2 Minutes</option>
+          <option value="180">3 Minutes</option>
+          <option value="300">5 Minutes</option>
+        </select>
+      </div>
+
+      <ul style="text-align:left; margin:10px auto; max-width:300px;">
+        <li><strong>Move:</strong> WASD / Arrow keys / Touch joystick (drag left side)</li>
+        <li><strong>Fire:</strong> Space or 🔥 button (right side)</li>
+      </ul>
+
+      <button id="startBtn">Start</button>
     </div>
-
-    <ul style="text-align:left; margin:10px auto; max-width:300px;">
-      <li><strong>Move:</strong> WASD / Arrow keys / Touch joystick (drag on canvas)</li>
-      <li><strong>Fire:</strong> Space or 🔥 button</li>
-    </ul>
-
-    <button id="startBtn">Start</button>
   </div>
-</div>
-
 
   <!-- Result overlay -->
   <div id="result" class="overlay hidden">
