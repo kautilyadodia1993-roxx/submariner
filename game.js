@@ -133,12 +133,26 @@ function getXY(e) { if (e.changedTouches && e.changedTouches[0]) { const t=e.cha
 function onTouchStart(e) {
   if (!running) return;
   const { x, y } = getXY(e);
+
+  // ✅ Don't activate joystick on UI or right side (fire button area)
   if (inForbidden(x, y)) return;
-  if (!joystick.active) {
-    joystick.active = true; joystick.id = pointerId(e);
-    joystick.startX = x; joystick.startY = y; joystick.dx = 0; joystick.dy = 0; joystick.show = true;
+
+  const screenMid = window.innerWidth / 2;
+
+  // ✅ Only allow joystick activation on the left half of the screen
+  if (x < screenMid && !joystick.active) {
+    joystick = {
+      active: true,
+      id: pointerId(e),
+      startX: x,
+      startY: y,
+      dx: 0,
+      dy: 0,
+      show: true
+    };
   }
 }
+
 function onTouchMove(e) {
   if (!joystick.active || !running) return;
   const { x, y } = getXY(e);
