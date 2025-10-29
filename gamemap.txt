@@ -1,0 +1,18 @@
+assets/
+├─ sprites/
+│  ├─ hero_sub.png             (256×128, faces LEFT)
+│  ├─ enemy_sub.png            (224×112, faces LEFT)
+│  ├─ torpedo.png              (96×32, faces RIGHT)
+│  ├─ bubble_point.png         (40×40)   ← smaller
+│  ├─ bubble_point_super.png   (80×80)   ← smaller, super pool = 5 total
+│  └─ ocean_tile.png           (512×512) optional
+├─ backgrounds/
+│  └─ ocean_bg.jpg             (WORLD_W×WORLD_H)
+├─ sfx/
+│  ├─ move.wav
+│  ├─ shoot.wav
+│  └─ destroy.wav
+└─ music/
+   ├─ bgm.mp3
+   ├─ victory.mp3
+   └─ defeat.mp3

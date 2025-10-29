@@ -1,0 +1,139 @@
+:root {
+  --ui-bg: rgba(0,0,0,0.55);
+  --ui-fg: #e8fcff;
+  --accent: #5df2ff;
+}
+* { box-sizing: border-box; user-select: none; }
+html,body {
+  height: 100%;
+  margin: 0;
+  background: #00111a;
+  color: var(--ui-fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+#timerSelect {
+  background: rgba(93,242,255,0.1);
+  color: #e8fcff;
+  border: 1px solid rgba(93,242,255,0.4);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+#timerSelect:focus {
+  outline: none;
+  border-color: rgba(93,242,255,0.7);
+}
+
+
+/* HUD */
+#hud {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--ui-bg);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 14px;
+  z-index: 6;
+}
+#hud .sep { opacity: 0.6; margin: 0 8px; }
+
+#hudButtons button {
+  background: rgba(93,242,255,0.15);
+  border: 1px solid rgba(93,242,255,0.4);
+  color: var(--ui-fg);
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#hudButtons button:hover { background: rgba(93,242,255,0.35); }
+
+#game {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Overlays */
+.overlay {
+  position: fixed; inset: 0;
+  display: grid; place-items: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 10; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.overlay.show { opacity: 1; pointer-events: auto; }
+.overlay.hidden { opacity: 0; pointer-events: none; }
+.panel {
+  background: rgba(0,30,45,0.9);
+  padding: 20px;
+  border: 1px solid rgba(93,242,255,0.3);
+  border-radius: 14px;
+  text-align: center;
+  color: #e8fcff;
+}
+.panel h1 { color: var(--accent); margin: 0 0 8px; }
+.panel button {
+  margin-top: 10px;
+  border: 0;
+  background: var(--accent);
+  color: #01232f;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Mini-map */
+#minimapWrap {
+  position: fixed;
+  top: 60px;
+  right: 14px;
+  background: rgba(0,20,30,0.6);
+  border: 1px solid rgba(93,242,255,0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 7;
+}
+
+/* Fire Button */
+#btnFire {
+  position: fixed;
+  bottom: 88px;
+  right: 60px;
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  border: 2px solid rgba(93,242,255,0.5);
+  background: rgba(93,242,255,0.15);
+  color: var(--accent);
+  font-size: 40px;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  z-index: 7;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+/* === Make minimap smaller on mobile devices === */
+@media (max-width: 768px) {
+  #minimapWrap {
+    width: 140px;
+    height: 100px;
+    top: 50px;
+    right: 10px;
+  }
+
+  #minimap {
+    width: 140px;
+    height: 100px;
+  }
+}
+
+
+#btnFire:active { transform: scale(0.92); background: rgba(93,242,255,0.3); }
+
+@media (max-width: 768px) {
+  #btnFire { width: 78px; height: 78px; font-size: 30px; bottom: 78px; right: 40px; }
+}

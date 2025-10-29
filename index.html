@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Submarine Battle</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- HUD -->
+  <div id="hud">
+    <div class="hud-left">
+      <span id="timer">120</span>s
+      <span class="sep">•</span>
+      Level: <span id="level">1</span>
+      <span class="sep">•</span>
+      Size: <span id="size">1.0x</span>
+      <span class="sep mob-hide">•</span>
+      <span class="mob-hide">Enemies: <span id="enemyCount">0</span></span>
+    </div>
+
+    <div class="hud-right" id="hudButtons">
+      <button id="btnStart">Start</button>
+      <button id="btnPause">Pause</button>
+      <button id="btnSound">Sound: On</button>
+      <button id="btnEnd">End</button>
+    </div>
+  </div>
+
+  <!-- Game -->
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <!-- Mini-map -->
+  <div id="minimapWrap">
+    <canvas id="minimap" width="240" height="150"></canvas>
+  </div>
+
+  <!-- Fire button -->
+  <button id="btnFire" title="Fire">🔥</button>
+
+  <!-- Start overlay -->
+  <!-- Start overlay -->
+<div id="overlay" class="overlay show">
+  <div class="panel">
+    <h1>Submarine Battle</h1>
+    <p>Collect bubbles to grow (levels only). Destroy enemies.</p>
+
+    <div style="margin:10px 0;">
+      <label for="timerSelect" style="display:block; margin-bottom:6px;">
+        <strong>Game Duration:</strong>
+      </label>
+      <select id="timerSelect">
+        <option value="60">1 Minute</option>
+        <option value="120" selected>2 Minutes</option>
+        <option value="180">3 Minutes</option>
+        <option value="300">5 Minutes</option>
+      </select>
+    </div>
+
+    <ul style="text-align:left; margin:10px auto; max-width:300px;">
+      <li><strong>Move:</strong> WASD / Arrow keys / Touch joystick (drag on canvas)</li>
+      <li><strong>Fire:</strong> Space or 🔥 button</li>
+    </ul>
+
+    <button id="startBtn">Start</button>
+  </div>
+</div>
+
+
+  <!-- Result overlay -->
+  <div id="result" class="overlay hidden">
+    <div class="panel">
+      <h2 id="resultTitle">Result</h2>
+      <p id="resultSummary"></p>
+      <div class="row">
+        <button id="restartBtn">Main Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
