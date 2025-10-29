@@ -3,29 +3,38 @@
   --ui-fg: #e8fcff;
   --accent: #5df2ff;
 }
-/* Prevent scrolling / zooming only on the game canvas area */
+/* === Fixed Game Window === */
 html, body {
-  overscroll-behavior: none;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
+  background: #000;
   overflow: hidden;
-}
-
-/* Lock scroll and zoom, but allow multi-touch on buttons */
-html, body {
   overscroll-behavior: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+  touch-action: none; /* stop browser gestures */
 }
 
-/* Canvas should consume drag gestures, but allow simultaneous taps elsewhere */
+/* Fixed-size canvas, centered */
 canvas {
-  touch-action: pan-x pan-y; /* ← this still prevents scroll but allows second finger taps */
+  display: block;
+  width: 1280px;      /* fixed viewport width */
+  height: 720px;      /* fixed viewport height */
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;  /* optional for crisp sprites */
+  touch-action: none;          /* allow multi-touch inside */
+}
+
+/* Keep buttons working */
+button, select, input, .overlay {
+  touch-action: manipulation;
+  pointer-events: auto;
 }
 
 /* Buttons and overlays must stay tapable */
