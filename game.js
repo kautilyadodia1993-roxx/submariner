@@ -734,12 +734,22 @@ function drawJoystick(){
 }
 
 /* ==============================
-   INIT & RESIZE
+   INIT (Fixed Window)
 ============================== */
-function onResize(){
-  canvas.style.width = '100vw';
-  canvas.style.height = '100vh';
-}
-window.addEventListener('resize', onResize);
-onResize();
+
+// ✅ Lock the canvas size once — same on all devices
+canvas.width = 1280;
+canvas.height = 720;
+
+// Optional: center it visually (handled by CSS)
+canvas.style.width = '1280px';
+canvas.style.height = '720px';
+
+// Prevent pinch-zoom gestures entirely (iOS/Safari safety)
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('gesturechange', e => e.preventDefault());
+document.addEventListener('gestureend', e => e.preventDefault());
+
+// Initialize the game
 resetGame();
+
