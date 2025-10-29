@@ -21,6 +21,10 @@
 ============================== */
 
 const timerSelect = document.getElementById('timerSelect');
+// Prevent mobile pinch zoom and double-tap zoom
+document.addEventListener('gesturestart', (e) => e.preventDefault());
+document.addEventListener('gesturechange', (e) => e.preventDefault());
+document.addEventListener('gestureend', (e) => e.preventDefault());
 
 
 const canvas = document.getElementById('game');
