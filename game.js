@@ -137,7 +137,7 @@ function onTouchStart(e) {
   // ✅ Don't activate joystick on UI or right side (fire button area)
   if (inForbidden(x, y)) return;
 
-  const screenMid = window.innerWidth / 2;
+const screenMid = window.innerWidth * 0.4;
 
   // ✅ Only allow joystick activation on the left half of the screen
   if (x < screenMid && !joystick.active) {
