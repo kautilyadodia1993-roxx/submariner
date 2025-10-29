@@ -151,6 +151,13 @@ canvas.addEventListener('touchstart', onTouchStart, { passive: true });
 canvas.addEventListener('touchmove',  onTouchMove,  { passive: true });
 canvas.addEventListener('touchend',   onTouchEnd,   { passive: true });
 canvas.addEventListener('touchcancel',onTouchEnd,   { passive: true });
+// ✅ Prevent page scroll but still allow multitouch (joystick + fire button)
+window.addEventListener('touchmove', (e) => {
+  // Only prevent scrolling when the user is interacting with the canvas itself
+  if (running && e.target === canvas) {
+    e.preventDefault();
+  }
+}, { passive: false });
 
 /* ==============================
    UTIL
