@@ -13,13 +13,23 @@ html, body {
   overflow: hidden;
 }
 
-/* Lock touch gestures to the canvas during gameplay */
-canvas {
-  touch-action: none;
+/* Lock scroll and zoom, but allow multi-touch on buttons */
+html, body {
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* ✅ Allow normal taps on all UI buttons */
-button, select, input, .overlay {
+/* Canvas should consume drag gestures, but allow simultaneous taps elsewhere */
+canvas {
+  touch-action: pan-x pan-y; /* ← this still prevents scroll but allows second finger taps */
+}
+
+/* Buttons and overlays must stay tapable */
+button, select, input, .overlay, #btnFire {
   touch-action: manipulation;
   pointer-events: auto;
 }
