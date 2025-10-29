@@ -3,18 +3,25 @@
   --ui-fg: #e8fcff;
   --accent: #5df2ff;
 }
-/* Prevent scrolling or dragging on mobile */
+/* Prevent scrolling / zooming only on the game canvas area */
 html, body {
   overscroll-behavior: none;
-  touch-action: none;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
+
+/* Lock touch gestures to the canvas during gameplay */
 canvas {
-  touch-action: none; /* ensures joystick touch stays inside the game */
+  touch-action: none;
+}
+
+/* ✅ Allow normal taps on all UI buttons */
+button, select, input, .overlay {
+  touch-action: manipulation;
+  pointer-events: auto;
 }
 
 * { box-sizing: border-box; user-select: none; }
