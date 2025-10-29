@@ -3,6 +3,20 @@
   --ui-fg: #e8fcff;
   --accent: #5df2ff;
 }
+/* Prevent scrolling or dragging on mobile */
+html, body {
+  overscroll-behavior: none;
+  touch-action: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+canvas {
+  touch-action: none; /* ensures joystick touch stays inside the game */
+}
+
 * { box-sizing: border-box; user-select: none; }
 html,body {
   height: 100%;
